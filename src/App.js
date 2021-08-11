@@ -1,5 +1,5 @@
 import React from 'react';
-import {Layout, message} from 'antd';
+import {Col, Layout, message, Row} from 'antd';
 import Login from './components/Login';
 import Register from './components/Register';
 import { logout } from './utils';
@@ -32,17 +32,27 @@ class App extends React.Component {
   render = () => {
     <Layout>
       <Header>
-      {
-          this.state.loggedIn ? 
-          <Button shape="round" onClick={this.signoutOnClick}>
-            Logout</Button> :
-          (
-            <>
-              <Login onSuccess={this.signinOnSuccess} />
-              <Register />
-            </>
-          )
-      }
+        <Row justify="space-between">
+          <Col>
+            {
+              this.state.loggedIn &&
+              <Favorites />
+            }
+          </Col>
+          <Col>
+          {
+            this.state.loggedIn ? 
+            <Button shape="round" onClick={this.signoutOnClick}>
+              Logout</Button> :
+            (
+              <>
+                <Login onSuccess={this.signinOnSuccess} />
+                <Register />
+              </>
+            )
+        }
+          </Col>
+        </Row>
       </Header>
       <Layout>
         <Sider width={300} className="site-layout-background">
