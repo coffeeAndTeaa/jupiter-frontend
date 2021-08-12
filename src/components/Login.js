@@ -44,7 +44,7 @@ class Login extends React.Component {
                 >Login</Button>
                 <Modal 
                     title="log in"
-                    visible={this.state.dispalyModal}
+                    visible={this.state.displayModal}
                     onCancel={this.handleCancel}
                     footer={null}
                     destroyOnClose={true}

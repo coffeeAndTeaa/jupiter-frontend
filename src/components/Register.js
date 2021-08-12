@@ -1,8 +1,8 @@
 import React from 'react';
-import { Button, From, Input, message, Modal} from 'antd';
+import { Button, Form, Input, message, Modal} from 'antd';
 import { LockOutlined, UserOutlined } from '@ant-design/icons';
 import { register } from '../utils';
-import Form from 'antd/lib/form/Form';
+
 
 class Register extends React.Component{
     state = {
@@ -22,16 +22,14 @@ class Register extends React.Component{
       }
     
     onFinish = (data) => {
-        register(data).
-        then(
+        register(data).then(
             () => {
                 this.setState({
                     displayModal: false,
                 })
                 message.success(`Successfully sign up`);
             }
-        ).
-        catch(
+        ).catch(
             (err) => {
                 message.error(err.message);
             }
